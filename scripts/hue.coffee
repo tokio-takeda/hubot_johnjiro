@@ -1,7 +1,5 @@
-ifttt_key = require('./resources/ifttt/ifttt_key')
-
 fire = (msg, event_name) ->
-  msg.http('https://maker.ifttt.com/trigger/turn_off_all/with/key/' + ifttt_key.key)
+  msg.http('https://maker.ifttt.com/trigger/turn_off_all/with/key/' + process.env.ifttt_key)
     .get() (err, res, body) ->
       if err
         res.send "Encountered an error :( #{err}"
